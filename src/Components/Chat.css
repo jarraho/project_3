@@ -1,0 +1,93 @@
+.messenger {
+  height: calc(100vh - 50px);
+  display: flex;
+ 
+}
+
+.chatMenu {
+  flex: 2;
+}
+
+.chatBox {
+  flex: 8;
+   border-left: 1px solid gray;
+  
+}
+.chatBoxTop {
+  padding-right: 10px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(179, 179, 179);
+}
+.chatBoxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding-right: 5px !important;
+}
+.chatBoxHeaderContainer{
+  width: 100%;
+  height: 50px;
+  border: 1px solid lightgray;
+
+}
+
+.chatBoxBottom {
+  margin: 10px 0;
+  display: flex;
+  border-top: 1px solid lightgray;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatMessageInput {
+  width:100%;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+}
+.chatMessageInput:focus {
+  outline: none;
+}
+.chatSendButton {
+  border: none;
+  padding: 12px 32px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+.chatSendButton:hover {
+  letter-spacing: 1px;
+  transform: scale(1.05);
+}
+
+.chatMenuContainer,
+.chatBoxContainer {
+  padding:12px;
+
+  height: 93%;
+}
+
+.noConversationText{
+  align-self: center;
+  top: 30%;
+  position: absolute;
+  color: gray;
+  font-size: 40px;
+  cursor: default;
+}
+
+@media screen and (max-width: 720px) {
+  .noConversationText{
+    font-size: 24px;
+  }
+  
+}

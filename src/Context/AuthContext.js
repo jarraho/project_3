@@ -15,7 +15,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
 
   /* Registers A user */
-  const signup = (email, password,userName) =>{
+  //This one, and it creates a user
+  const signup = (email, password) =>{
     return auth.createUserWithEmailAndPassword(email, password)
 
   }
@@ -31,8 +32,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   /* Listens to changes in Auth state */
+  //Every time a user logs in or logs out, the state changes, and we assign the user to current User
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
+      //Then we can use that current user anywhere in the app
+      
       setCurrentUser(user)
       setLoading(false)
       

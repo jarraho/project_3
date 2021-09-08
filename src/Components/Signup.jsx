@@ -67,14 +67,20 @@ function Signup() {
     showButton();
   }, []);
   // Registers User And Saves them In database
+  
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    //It checks if password matches
     if (password.current.value === passRep.current.value) {
       try {
+        //this calls the method in Auth context
         await signup(email.current.value, password.current.value).then(
           ({ user }) => {
-
+            
             //Add new user to database as well
+
+            
             db.collection("users").add({
               userId: user.uid,
               userName: userName.current.value,
@@ -96,6 +102,8 @@ function Signup() {
   };
 
   //Login user
+
+  //THis calls the login in auth.
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -214,6 +222,7 @@ function Signup() {
               />
 
               <center>
+                {/* This Button calls handle register */}
                 <Button className="signup-button" onClick={handleRegister}>
                   Register
                 </Button>

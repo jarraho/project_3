@@ -10,6 +10,7 @@ import Navbar from './Components/Navbar';
 import Chat from './Components/Chat';
 import Home from './Components/Home'
 import Signup from './Components/Signup.jsx';
+import Detail from './Components/Detail.jsx';
 import { useAuth } from './Context/AuthContext';
 
 function App() {
@@ -17,44 +18,52 @@ function App() {
   const {currentUser} = useAuth()
   return (
     <div className="App">
-      {/* Website Routes */}
-       <Router>
-        <div>
-          <Switch >
-
-            <Route exact path="/">
-            <Navbar/>
-            <Home/>
-            </Route>
-            <Route path="/register">
-            {currentUser? 
-            <Redirect to = '/chat'/>
-            :
-            <>
-            <Navbar/>
-            <Signup loginPage/>
-            </>
-            
-          }
-            </Route>
-            <Route path="/chat">
-              {currentUser ?
-              <>
-              <Navbar/>
-              <Chat/>
-              </>
-              : 
-              <Redirect to = '/register'/>}
-             
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-            
-        
+    {/* Website Routes */}
+    <Router>
+    <div>
+    <Switch >
+    
+    <Route exact path="/">
+    <Navbar/>
+    <Home/>
+    </Route>
+    
+    
+    <Route path="/register">
+    {currentUser?
+    <Redirect to = '/chat'/>
+    :
+    <>
+    <Navbar/>
+    <Signup loginPage/>
+    </>
+    }
+    </Route>
+    <Route path="/details/:movieId">
+    
+    <Detail/>
+    
+    </Route>
+    <Route path="/chat">
+    {currentUser ?
+    <>
+    <Navbar/>
+    <Chat/>
+    </>
+    :
+    <Redirect to = '/register'/>}
+    
+    </Route>
+    </Switch>
+    </div>
+    </Router>
+    
+    
     </div>
     
-  );
+    );
+    
+    
 }
 
 export default App;
